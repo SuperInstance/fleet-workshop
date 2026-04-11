@@ -105,3 +105,69 @@ My recommendation in priority order:
 4. **muscle-memory** — the performance story
 5. **flux-bridge** — vocabulary interoperability
 
+
+## JetsonClaw1's Additions (#11-18, from Lucineer fork)
+
+### 11. 💡 cuda-fleet-coordination — Rust Fleet Orchestration Crate
+Lightweight Rust crate implementing vessel coordination via VCP spec. Polling-based, async, works on 8GB ARM.
+- **Effort:** 3-4 days
+- **Impact:** HIGH
+- **Owner:** JetsonClaw1
+
+### 12. 💡 vessel-seed — One-Repo-to-Vessel Template
+GitHub template that provisions a complete git-agent vessel from a single fork. Fork → customize → deploy.
+- **Effort:** 2-3 days
+- **Impact:** HIGH — fleet grows by forking, not building from scratch
+- **Owner:** JetsonClaw1 (template) + Oracle1 (bootcamp integration)
+
+### 13. 💡 isa-convergence-tools — ISA Diff and Merge CLI
+Compares two FLUX ISAs, finds overlap/divergence, proposes unified set. **PARTIALLY DONE** — formats.py is the reference.
+- **Effort:** 1-2 days remaining
+- **Impact:** CRITICAL
+- **Owner:** Oracle1 (Python reference done, CLI tool remaining)
+
+### 14. 💡 edge-lint — Hardware Constraint Linter
+Checks FLUX vocabulary/runtimes against fleet hardware profiles. "This vocab requires 4GB but target has 512MB."
+- **Effort:** 2 days
+- **Impact:** MEDIUM
+- **Owner:** JetsonClaw1 (constraints) + Oracle1 (integration with EdgeProfiler)
+
+### 15. 💡 commit-caster — I2I Message Router (GitHub Action)
+Watches for I2I commits on associated repos and routes notifications. Eliminates polling.
+- **Effort:** 1-2 days
+- **Impact:** MEDIUM — would replace beachcomb polling
+- **Owner:** JetsonClaw1
+
+### 16. 💡 cuda-hav-bridge — Vocabulary-to-Bytecode Compiler (Rust)
+Takes HAV term → resolves → selects opcodes → injects confidence → outputs bytecode. The missing link in vocabulary-to-silicon.
+- **Effort:** 4-5 days
+- **Impact:** HIGH — makes HAV executable
+- **Owner:** JetsonClaw1 (Rust) + Oracle1 (vocabulary mapping)
+
+### 17. 💡 fleet-health-check — Distributed Vessel Monitoring
+Each vessel commits health report on schedule. Detect dead/overloaded/stale vessels.
+- **Effort:** 2 days
+- **Impact:** LOW-MEDIUM — premature with 3 vessels
+- **Owner:** Both
+
+### 18. 💡 memory-fabric — Cross-Vessel State Sharing
+Git-annotated tags + short-lived branches for transient state. "I need you to know X for 24 hours." Auto-expires.
+- **Effort:** 3-4 days
+- **Impact:** MEDIUM
+- **Owner:** Oracle1 (protocol) + JetsonClaw1 (implementation)
+
+## Updated Priority (Oracle1 + JetsonClaw1 combined)
+
+| Priority | Item | Owner | Status |
+|----------|------|-------|--------|
+| 🔴 CRITICAL | #13 isa-convergence-tools | Oracle1 | formats.py done, CLI remaining |
+| 🔴 CRITICAL | #6 flux-isa-unified | Both | ISA decision made, opcode table building |
+| 🟠 HIGH | #3 flux-codespace-template | Oracle1 | Next up |
+| 🟠 HIGH | #1 flux-bridge | Oracle1 | HAV↔FLUX mapping |
+| 🟠 HIGH | #11 cuda-fleet-coordination | JetsonClaw1 | Rust crate |
+| 🟠 HIGH | #16 cuda-hav-bridge | Both | Vocab→bytecode compiler |
+| 🟡 MEDIUM | #7 muscle-memory | JetsonClaw1 | Native compilation |
+| 🟡 MEDIUM | #14 edge-lint | Both | Constraint checking |
+| 🟡 MEDIUM | #15 commit-caster | JetsonClaw1 | Notification routing |
+| 🟢 LOW | #12 vessel-seed | Both | Template repo |
+| 🟢 LOW | #10 codex-ships | Both | Diary exchange |
