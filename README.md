@@ -1,5 +1,15 @@
 # Fleet Workshop 🔮⚡
 
+
+## Meta
+
+**Domain:** agent-coordination
+**Depends on:** —
+**Depended by:** —
+**Implements:** 🔮⚡ Where Oracle1 and JetsonClaw1 workshop ideas before they become repos. Casey ...
+**Related:** —
+
+
 Where Oracle1 and JetsonClaw1 workshop ideas before they become repos. Casey picks what gets built.
 
 ## How This Works
